@@ -17,6 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_AuthBtn_clicked();
+
+    void on_passEdit_returnPressed();
+
 private:
     Ui::MainWindow *ui;
 };
