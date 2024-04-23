@@ -22,6 +22,10 @@ private slots:
 
     void on_passEdit_returnPressed();
 
+    void on_endChangeBtn_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

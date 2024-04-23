@@ -30,12 +30,25 @@ void MainWindow::on_AuthBtn_clicked()
         ui->authErrorLabel->setText("Неверный логин или пароль");
         ui->authErrorLabel->show();
     }
-
 }
 
 
 void MainWindow::on_passEdit_returnPressed()
 {
     this->on_AuthBtn_clicked();
+}
+
+
+void MainWindow::on_endChangeBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->sosPage->setStyleSheet("background-color: red; color: white;");
+
 }
 
