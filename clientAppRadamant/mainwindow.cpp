@@ -18,6 +18,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_endChange_statusReceived(int status)
+{
+    qDebug() << status;
+}
+
 void MainWindow::on_AuthBtn_clicked()
 {
     QString login = ui->loginEdit->text();
@@ -38,17 +43,16 @@ void MainWindow::on_passEdit_returnPressed()
     this->on_AuthBtn_clicked();
 }
 
-
 void MainWindow::on_endChangeBtn_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ConfirmDialogForm endChangeDialog(this, "Закрытие смены", "Вы уверены, что хотите закрыть смену?");
+
+    QObject::connect(&endChangeDialog, SIGNAL(endStatusSignal(int)), this, SLOT(on_endChange_statusReceived(int)));
 }
 
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_sosBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
     ui->sosPage->setStyleSheet("background-color: red; color: white;");
-
 }
 

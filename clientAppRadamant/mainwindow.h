@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDialog>
+#include "confirmdialogform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,6 +19,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void on_endChange_statusReceived(int status);
+
 private slots:
     void on_AuthBtn_clicked();
 
@@ -24,7 +29,7 @@ private slots:
 
     void on_endChangeBtn_clicked();
 
-    void on_pushButton_clicked();
+    void on_sosBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
