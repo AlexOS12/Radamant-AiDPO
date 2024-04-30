@@ -6,6 +6,7 @@ ConfirmDialogForm::ConfirmDialogForm(QWidget *parent, QString title, QString des
     , ui(new Ui::ConfirmDialogForm)
 {
     ui->setupUi(this);
+    setWindowTitle(title);
     ui->title->setText(title);
     ui->desctiption->setText(description);
 }
