@@ -18,7 +18,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_endChange_statusReceived(int status)
+void MainWindow::endChange_status_received(int status)
 {
     qDebug() << status;
 }
@@ -45,9 +45,11 @@ void MainWindow::on_passEdit_returnPressed()
 
 void MainWindow::on_endChangeBtn_clicked()
 {
-    ConfirmDialogForm endChangeDialog(this, "Закрытие смены", "Вы уверены, что хотите закрыть смену?");
+    ConfirmDialogForm *endChangeDialog = new ConfirmDialogForm(this, "Закрытие смены", "Вы уверены, что хотите закрыть смену?");
+    QObject::connect(endChangeDialog, SIGNAL(endStatusSignal(int)), this, SLOT(endChange_status_received(int)));
+    QObject::connect(endChangeDialog, SIGNAL(finished(int)), endChangeDialog, SLOT(deleteLater()));
+    endChangeDialog->show();
 
-    QObject::connect(&endChangeDialog, SIGNAL(endStatusSignal(int)), this, SLOT(on_endChange_statusReceived(int)));
 }
 
 void MainWindow::on_sosBtn_clicked()

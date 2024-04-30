@@ -20,7 +20,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void on_endChange_statusReceived(int status);
+    void endChange_status_received(int status);
 
 private slots:
     void on_AuthBtn_clicked();
