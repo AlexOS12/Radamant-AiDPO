@@ -6,6 +6,7 @@ ManualPassDialog::ManualPassDialog(QWidget *parent)
     , ui(new Ui::ManualPassDialog)
 {
     ui->setupUi(this);
+    setWindowTitle("Ручное открытие турникета");
 }
 
 ManualPassDialog::~ManualPassDialog()
