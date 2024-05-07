@@ -18,6 +18,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::endChange_status_received(int status)
+{
+    qDebug() << status;
+}
+
+void MainWindow::wicketPerson_received(Person person)
+{
+    qDebug() << person.lastname << "\n" << person.passport;
+}
+
 void MainWindow::on_AuthBtn_clicked()
 {
     QString login = ui->loginEdit->text();
@@ -38,17 +48,34 @@ void MainWindow::on_passEdit_returnPressed()
     this->on_AuthBtn_clicked();
 }
 
-
 void MainWindow::on_endChangeBtn_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ConfirmDialogForm *endChangeDialog = new ConfirmDialogForm(this, "Закрытие смены", "Вы уверены, что хотите закрыть смену?");
+    QObject::connect(endChangeDialog, SIGNAL(endStatusSignal(int)), this, SLOT(endChange_status_received(int)));
+    QObject::connect(endChangeDialog, SIGNAL(finished(int)), endChangeDialog, SLOT(deleteLater()));
+    endChangeDialog->show();
+
 }
 
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_sosBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
     ui->sosPage->setStyleSheet("background-color: red; color: white;");
+}
 
+
+void MainWindow::on_openWicketA_clicked()
+{
+    ManualPassDialog *manualPassDialog = new ManualPassDialog();
+    QObject::connect(manualPassDialog, SIGNAL(enteredPerson(Person)), this, SLOT(wicketPerson_received(Person)));
+    manualPassDialog->show();
+}
+
+
+void MainWindow::on_openWicketB_clicked()
+{
+    ManualPassDialog *manualPassDialog = new ManualPassDialog();
+    QObject::connect(manualPassDialog, SIGNAL(enteredPerson(Person)), this, SLOT(wicketPerson_received(Person)));
+    manualPassDialog->show();
 }
 

@@ -373,7 +373,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QCommandLinkButton" name="commandLinkButton">
+             <widget class="QCommandLinkButton" name="openWicketB">
               <property name="minimumSize">
                <size>
                 <width>0</width>
@@ -509,7 +509,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="sosBtn">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
