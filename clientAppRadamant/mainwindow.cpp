@@ -23,6 +23,11 @@ void MainWindow::endChange_status_received(int status)
     qDebug() << status;
 }
 
+void MainWindow::wicketPerson_received(Person person)
+{
+    qDebug() << person.lastname << "\n" << person.passport;
+}
+
 void MainWindow::on_AuthBtn_clicked()
 {
     QString login = ui->loginEdit->text();
@@ -56,5 +61,21 @@ void MainWindow::on_sosBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
     ui->sosPage->setStyleSheet("background-color: red; color: white;");
+}
+
+
+void MainWindow::on_openWicketA_clicked()
+{
+    ManualPassDialog *manualPassDialog = new ManualPassDialog();
+    QObject::connect(manualPassDialog, SIGNAL(enteredPerson(Person)), this, SLOT(wicketPerson_received(Person)));
+    manualPassDialog->show();
+}
+
+
+void MainWindow::on_openWicketB_clicked()
+{
+    ManualPassDialog *manualPassDialog = new ManualPassDialog();
+    QObject::connect(manualPassDialog, SIGNAL(enteredPerson(Person)), this, SLOT(wicketPerson_received(Person)));
+    manualPassDialog->show();
 }
 

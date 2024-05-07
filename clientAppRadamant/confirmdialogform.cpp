@@ -19,12 +19,12 @@ ConfirmDialogForm::~ConfirmDialogForm()
 
 void ConfirmDialogForm::on_confirmBtn_clicked()
 {
-    endStatusSignal(1);
+    emit endStatusSignal(1);
 }
 
 
 void ConfirmDialogForm::on_declineBtn_clicked()
 {
-    endStatusSignal(0);
+    emit endStatusSignal(0);
 }
 

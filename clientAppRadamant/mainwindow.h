@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDialog>
 #include "confirmdialogform.h"
+#include "manualpassdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,6 +22,7 @@ public:
 
 public slots:
     void endChange_status_received(int status);
+    void wicketPerson_received(Person person);
 
 private slots:
     void on_AuthBtn_clicked();
@@ -30,6 +32,10 @@ private slots:
     void on_endChangeBtn_clicked();
 
     void on_sosBtn_clicked();
+
+    void on_openWicketA_clicked();
+
+    void on_openWicketB_clicked();
 
 private:
     Ui::MainWindow *ui;

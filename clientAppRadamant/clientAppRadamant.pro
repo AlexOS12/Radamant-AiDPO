@@ -11,15 +11,18 @@ CONFIG += c++17
 SOURCES += \
     confirmdialogform.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    manualpassdialog.cpp
 
 HEADERS += \
     confirmdialogform.h \
-    mainwindow.h
+    mainwindow.h \
+    manualpassdialog.h
 
 FORMS += \
     confirmdialogform.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    manualpassdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
