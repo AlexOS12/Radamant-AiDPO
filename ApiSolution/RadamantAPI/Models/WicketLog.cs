@@ -22,7 +22,7 @@ namespace RadamantAPI.Models
         [StringLength(250)]
         public string Message { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [ForeignKey("PersonId")]
         [InverseProperty("WicketLogs")]

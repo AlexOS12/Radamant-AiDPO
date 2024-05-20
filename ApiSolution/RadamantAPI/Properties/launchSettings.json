@@ -25,7 +25,8 @@
       "environmentVariables": {
         "ASPNETCORE_URLS": "http://+:80"
       },
-      "publishAllPorts": true
+      "publishAllPorts": true,
+      "httpPort": 27015
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",

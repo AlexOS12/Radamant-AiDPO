@@ -23,7 +23,7 @@ namespace RadamantAPI.Models
         [StringLength(20)]
         public string Login { get; set; }
         [Required]
-        [StringLength(10)]
+        [StringLength(16)]
         public string PassHash { get; set; }
         public bool Status { get; set; }
 
