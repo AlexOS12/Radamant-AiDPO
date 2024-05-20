@@ -3,8 +3,14 @@
 
 #include <QMainWindow>
 #include <QDialog>
+#include <QFile>
+#include <QDir>
+#include <QDate>
+#include <QTime>
 #include "confirmdialogform.h"
 #include "manualpassdialog.h"
+#include "serverconnector.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,7 +28,7 @@ public:
 
 public slots:
     void endChange_status_received(int status);
-    void wicketPerson_received(Person person);
+    void wicketPerson_received(Person person, int wicketId);
 
 private slots:
     void on_AuthBtn_clicked();
@@ -37,7 +43,18 @@ private slots:
 
     void on_openWicketB_clicked();
 
+
+
 private:
+    QString host;
+
+    bool readFile();
+    bool writeFile(int autoLogin, QString login);
+
+    void logger(QString message);
+
+    int currentStaffID = -1;
+    ServerConnector server;
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

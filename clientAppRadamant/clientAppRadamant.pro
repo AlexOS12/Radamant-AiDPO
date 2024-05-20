@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,12 +12,15 @@ SOURCES += \
     confirmdialogform.cpp \
     main.cpp \
     mainwindow.cpp \
-    manualpassdialog.cpp
+    manualpassdialog.cpp \
+    serverconnector.cpp
 
 HEADERS += \
+    Person.h \
     confirmdialogform.h \
     mainwindow.h \
-    manualpassdialog.h
+    manualpassdialog.h \
+    serverconnector.h
 
 FORMS += \
     confirmdialogform.ui \
@@ -28,3 +31,5 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=

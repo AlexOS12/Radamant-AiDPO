@@ -4,16 +4,7 @@
 #include <QWidget>
 #include <QDialog>
 #include <QString>
-
-struct Person {
-    QString lastname;
-    QString passport;
-
-    Person(QString lastname, QString passport) {
-        this->lastname = lastname;
-        this->passport = passport;
-    }
-};
+#include "Person.h"
 
 namespace Ui {
 class ManualPassDialog;
@@ -24,11 +15,11 @@ class ManualPassDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ManualPassDialog(QWidget *parent = nullptr);
+    explicit ManualPassDialog(int wicketId, QWidget *parent = nullptr);
     ~ManualPassDialog();
 
 signals:
-    void enteredPerson(Person person);
+    void enteredPerson(Person person, int wicketId);
 
 private slots:
     void on_passPersonBtn_clicked();
@@ -36,6 +27,7 @@ private slots:
     void on_cancelBtn_clicked();
 
 private:
+    int wicketId;
     Ui::ManualPassDialog *ui;
 };
 
