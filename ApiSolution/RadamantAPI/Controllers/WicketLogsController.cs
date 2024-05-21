@@ -46,6 +46,7 @@ namespace RadamantAPI.Controllers
 			log.WicketId = wicketId;
 			log.StatusId = 1;
 			log.Message = message;
+			log.Date = DateTime.Now;
 			_context.WicketLogs.Add(log);
 			await _context.SaveChangesAsync();
 			return 1;
