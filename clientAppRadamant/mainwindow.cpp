@@ -57,6 +57,8 @@ void MainWindow::on_AuthBtn_clicked()
         ui->authErrorLabel->setText("Неверный логин или пароль");
         ui->authErrorLabel->show();
     }
+    if (!ui->remLogChkBx->isChecked())
+        ui->loginEdit->clear();
     ui->passEdit->clear();
 }
 
