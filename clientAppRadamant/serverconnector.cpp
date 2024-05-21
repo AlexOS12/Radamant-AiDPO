@@ -77,7 +77,7 @@ bool ServerConnector::ManualPass(Person *person, int wicketId)
     delete reply;
 }
 
-void ServerConnector::SOS(int checkPointId)
+bool ServerConnector::SOS(int checkPointId)
 {
     QUrl url("http://" + this->host + "/api/SOS");
 
@@ -96,8 +96,10 @@ void ServerConnector::SOS(int checkPointId)
 
     if (reply->error() == QNetworkReply::NoError) {
         qDebug() << "Got: " << reply->readAll();
+        return true;
     } else {
         qDebug() << "Failed: " << reply->errorString();
+        return false;
     }
     delete reply;
 }

@@ -18,7 +18,7 @@ public:
 
     int Authorize(QString login, QString pass);
     bool ManualPass(Person *person, int wicketId);
-    void SOS(int checkPointId);
+    bool SOS(int checkPointId);
 
 private slots:
     void ReplyFinished(QNetworkReply *reply);
